@@ -53,20 +53,10 @@ jobs:
         name: chrome
         path: dist
 
-    - name: Echo
+    - run: npx chrome-webstore-upload-cli@3
+      working-directory: dist/
       env:
+        EXTENSION_ID: ${{ secrets.EXTENSION_ID }}
         CLIENT_ID: ${{ secrets.CLIENT_ID }}
         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
         REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
-      run: |
-        echo $CLIENT_ID
-        echo $CLIENT_SECRET
-        echo $REFRESH_TOKEN
-
-#    - run: npx chrome-webstore-upload-cli@3
-#      working-directory: dist/
-#      env:
-#        EXTENSION_ID: 'EXTENSION_ID'
-#        CLIENT_ID: 'CLIENT_ID'
-#        CLIENT_SECRET: 'CLIENT_SECRET'
-#        REFRESH_TOKEN: 'REFRESH_TOKEN'
