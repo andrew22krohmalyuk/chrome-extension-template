@@ -66,15 +66,9 @@ jobs:
       uses: actions/upload-artifact@1746f4ab65b179e0ea60a494b83293b640dd5bba # v4.3.2
       with:
         name: chrome
-        path: dist/
 
     - name: Publish to Chrome store
       run: ls -l
-
-#    - name: Zip contents
-#      uses: montudor/action-zip@v1
-#      with:
-#        args: zip -qq -r extension.zip dist
 
 #    - name: Publish to Chrome store
 #      uses: Klemensas/chrome-extension-upload-action@v1.3
