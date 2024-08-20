@@ -41,7 +41,7 @@ jobs:
       uses: actions/upload-artifact@1746f4ab65b179e0ea60a494b83293b640dd5bba # v4.3.2
       with:
         name: chrome
-        path: dist
+        path: dist/
     
 #    - name: Publish test results
 #      uses: IgnusG/jest-report-action@v2.3.3
@@ -63,10 +63,10 @@ jobs:
     
     steps:
     - name: Download artifact
-      uses: actions/download-artifact@v2
+      uses: actions/upload-artifact@1746f4ab65b179e0ea60a494b83293b640dd5bba # v4.3.2
       with:
         name: chrome
-        path: dist
+        path: dist/
     
     - name: Zip contents
       uses: montudor/action-zip@v1
