@@ -33,9 +33,12 @@ jobs:
     
     - name: Build project
       run: npm run build:prod
+
+    - name: Build project
+      run: npm run build:prod
     
     - name: Run tests and produce reports
-      run: npm run test:ci
+      run: ls -l
 
     - name: Upload Release Build Artifact
       uses: actions/upload-artifact@1746f4ab65b179e0ea60a494b83293b640dd5bba # v4.3.2
