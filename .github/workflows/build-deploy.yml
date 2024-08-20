@@ -41,7 +41,7 @@ jobs:
       uses: actions/upload-artifact@1746f4ab65b179e0ea60a494b83293b640dd5bba # v4.3.2
       with:
         name: chrome
-        path: ./dist
+        path: dist
 
   deploy:
     name: Deploy chrome extension
@@ -51,10 +51,10 @@ jobs:
     
     steps:
     - name: Download artifact
-      uses: actions/upload-artifact@1746f4ab65b179e0ea60a494b83293b640dd5bba # v4.3.2
+      uses: actions/download-artifact
       with:
         name: chrome
-        path: ./dist
+        path: dist
 
     - name: Publish to Chrome store
       run: ls -l
