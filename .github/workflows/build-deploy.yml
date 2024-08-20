@@ -50,6 +50,7 @@ jobs:
     - name: Download artifact
       uses: actions/download-artifact@65a9edc5881444af0b9093a5e628f2fe47ea3b2e # v4.1.7
       with:
+        name: chrome
         path: dist
 
     - name: ls -l
@@ -57,8 +58,11 @@ jobs:
 
     - name: 'Upload to store'
       uses: actions/upload-artifact@1746f4ab65b179e0ea60a494b83293b640dd5bba # v4.3.2
+      with:
+        path: dist
+
     - run: npx chrome-webstore-upload-cli@3
-      working-directory: dist
+      working-directory: dist/
       env:
         EXTENSION_ID: 'EXTENSION_ID'
         CLIENT_ID: 'CLIENT_ID'
