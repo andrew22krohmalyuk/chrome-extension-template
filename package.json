@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "private": true,
   "scripts": {
-    "build": "webpack --watch --progress",
+    "build": "webpack --progress",
     "build:prod": "webpack --mode=production",
     "test": "jest",
     "test:ci": "npm run test -- --coverage --ci --testResultsProcessor=\"jest-junit\" --watchAll=false"
