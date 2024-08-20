@@ -36,12 +36,18 @@ jobs:
     
     - name: Run tests and produce reports
       run: npm run test:ci
-    
-    - name: Publish test results
-      uses: IgnusG/jest-report-action@v2.3.3
-      if: always()  
+
+    - name: Upload Release Build Artifact
+      uses: actions/upload-artifact@1746f4ab65b179e0ea60a494b83293b640dd5bba # v4.3.2
       with:
-        access-token: ${{ secrets.GITHUB_TOKEN }} 
+        name: chrome
+        path: dist/
+    
+#    - name: Publish test results
+#      uses: IgnusG/jest-report-action@v2.3.3
+#      if: always()
+#      with:
+#        access-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Publish code coverage results
       uses: romeovs/lcov-reporter-action@v0.2.19
