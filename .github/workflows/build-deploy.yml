@@ -1,4 +1,4 @@
-name: Build and deploy chrome extension
+name: Debug deploy chrome extension
 
 on:
   push:
