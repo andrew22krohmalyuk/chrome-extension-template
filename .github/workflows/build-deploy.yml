@@ -45,19 +45,10 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
 #    if: false
-    
+
     steps:
     - name: Download artifact
       uses: actions/download-artifact@65a9edc5881444af0b9093a5e628f2fe47ea3b2e # v4.1.7
-      with:
-        name: chrome
-        path: dist
-
-    - name: ls -l
-      run: ls -l
-
-    - name: 'Upload to store'
-      uses: actions/upload-artifact@1746f4ab65b179e0ea60a494b83293b640dd5bba # v4.3.2
       with:
         name: chrome
         path: dist
@@ -69,13 +60,3 @@ jobs:
         CLIENT_ID: 'CLIENT_ID'
         CLIENT_SECRET: 'CLIENT_SECRET'
         REFRESH_TOKEN: 'REFRESH_TOKEN'
-
-#    - name: Publish to Chrome store
-#      uses: Klemensas/chrome-extension-upload-action@v1.3
-#      with:
-#        refresh-token: ${{ secrets.CHROME_REFRESH_TOKEN }}
-#        client-id: ${{ secrets.CHROME_CLIENT_ID }}
-#        client-secret: ${{ secrets.CHROME_CLIENT_SECRET }}
-#        file-name: './extension.zip'
-#        app-id: ${{ secrets.CHROME_APP_ID }}
-#        publish: false
