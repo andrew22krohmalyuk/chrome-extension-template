@@ -33,11 +33,8 @@ jobs:
     
     - name: Build project
       run: npm run build:prod
-
-    - name: Build project
-      run: npm run build:prod
     
-    - name: Run tests and produce reports
+    - name: ls -l
       run: ls -l
 
     - name: Upload Release Build Artifact
@@ -57,7 +54,7 @@ jobs:
       uses: actions/upload-artifact@1746f4ab65b179e0ea60a494b83293b640dd5bba # v4.3.2
       with:
         name: chrome
-        path: dist/
+        path: dist
 
     - name: Publish to Chrome store
       run: ls -l
