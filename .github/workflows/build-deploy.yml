@@ -56,7 +56,7 @@ jobs:
         path: chrome
 
     - name: ls -l
-      run: ls -l
+      run: ls -l && cat ./chrome/manifest.json
 
     - name: Check dep
       uses: actions/github-script@v7
