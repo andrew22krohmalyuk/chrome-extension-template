@@ -64,7 +64,7 @@ jobs:
         result-encoding: string
         script: |          
           const script = require('./.github/workflows/scripts/js/check-versions.js')
-          const result = await script();
+          const result = await script({ github });
           return result;
 
 #    - run: npx chrome-webstore-upload-cli@3
