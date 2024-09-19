@@ -10,6 +10,6 @@ module.exports = async ({ github }) => {
 
   const manifest = require(manifestPath);
   manifest.version = '0.0.2';
-  writeFileSync(manifestPath, JSON.stringify(manifest));
+  writeFileSync(manifestPath, JSON.stringify(manifest, null, '\t'));
   return null;
 }
