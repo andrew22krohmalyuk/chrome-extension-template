@@ -65,7 +65,7 @@ jobs:
           const script = require('./.github/workflows/scripts/js/check-versions.js')
           await script({ github });
 
-    - name: Update manifest version
+    - name: 'Upload to store'
       run: ls -l && cat ./chrome/manifest.json && npx chrome-webstore-upload-cli@3 --source chrome
       env:
         EXTENSION_ID: ${{ secrets.EXTENSION_ID }}
