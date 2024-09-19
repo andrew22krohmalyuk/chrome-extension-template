@@ -58,19 +58,19 @@ jobs:
     - name: ls -l
       run: ls -l && cat ./chrome/manifest.json
 
-    - name: Check dep
+    - name: Update manifest version
       uses: actions/github-script@v7
       with:
         result-encoding: string
         script: |          
           const script = require('./.github/workflows/scripts/js/check-versions.js')
           const result = await script({ github });
-          return result;
 
-#    - run: npx chrome-webstore-upload-cli@3
-#      working-directory: dist/
-#      env:
-#        EXTENSION_ID: ${{ secrets.EXTENSION_ID }}
-#        CLIENT_ID: ${{ secrets.CLIENT_ID }}
-#        CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-#        REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+    - name: Update manifest version
+      run: ls -l && cat ./chrome/manifest.json && npx chrome-webstore-upload-cli@3 --source chrome
+      working-directory: dist/
+      env:
+        EXTENSION_ID: ${{ secrets.EXTENSION_ID }}
+        CLIENT_ID: ${{ secrets.CLIENT_ID }}
+        CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+        REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
